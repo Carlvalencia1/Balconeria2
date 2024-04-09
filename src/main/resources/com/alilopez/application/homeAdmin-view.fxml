@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alilopez.application.controllers.HomeAdminController">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/fondo-home-cafebalam.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="inventarioButton" layoutX="61.0" layoutY="245.0" mnemonicParsing="false" onMouseClicked="#onClickInventarioButton" prefHeight="94.0" prefWidth="206.0" text="Inventario">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="78.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/alt-de-inventario.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="clienteButton" layoutX="287.0" layoutY="245.0" mnemonicParsing="false" onMouseClicked="#onClickClienteButton" prefHeight="94.0" prefWidth="206.0" text="Clientes">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="76.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/revisar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="usuarioButton" layoutX="525.0" layoutY="245.0" mnemonicParsing="false" onMouseClicked="#onClickUsuarioButton" prefHeight="94.0" prefWidth="206.0" text="Empleados">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="58.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/empleados.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="historialButton" alignment="CENTER" layoutX="61.0" layoutY="364.0" mnemonicParsing="false" onMouseClicked="#onClickHistorialButton" prefHeight="94.0" prefWidth="206.0" text="Historial de Ventas" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="78.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/tiempo-pasado.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="exitButton" layoutX="422.0" layoutY="489.0" mnemonicParsing="false" onMouseClicked="#onMouseClickExitButton" prefHeight="94.0" prefWidth="206.0" text="Salir">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="78.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/salir-alt.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="ventaNacionalButton" alignment="CENTER" layoutX="525.0" layoutY="364.0" mnemonicParsing="false" onMouseClicked="#onClickVentaNacionalButton" prefHeight="94.0" prefWidth="206.0" text="Venta Nacional" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="78.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/envio-rapido.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="ventaLocalButton" layoutX="287.0" layoutY="364.0" mnemonicParsing="false" onMouseClicked="#onClickVentaLocalButton" prefHeight="94.0" prefWidth="206.0" text="Venta Local" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="78.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/venta.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="openCajaButton" layoutX="164.0" layoutY="489.0" mnemonicParsing="false" onMouseClicked="#onClickOpenCajaButton" prefHeight="94.0" prefWidth="206.0" text="Abrir Caja">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="78.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/caja-registradora.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="closeCajaButton" layoutX="164.0" layoutY="489.0" mnemonicParsing="false" onMouseClicked="#onClickCloseCajaButton" prefHeight="94.0" prefWidth="206.0" text="Cerrar Caja" textAlignment="CENTER" visible="false" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="78.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/caja-registradora.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

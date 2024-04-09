@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="493.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alilopez.application.controllers.UpdateClienteController">
+    <children>
+      <ImageView fitHeight="499.0" fitWidth="608.0" layoutX="-7.0" layoutY="-5.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../img/CUsersmaxdiIdeaProjectsCafeBalamsrcmainresourcesimgfondo-home-cafebalam.png.png" />
+         </image>
+      </ImageView>
+        <Button fx:id="closeButton" layoutX="335.0" layoutY="396.0" mnemonicParsing="false" onMouseClicked="#onClickCloseButton" prefHeight="35.0" prefWidth="200.0" text="Cerrar">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Button>
+        <Button fx:id="saveButton" layoutX="65.0" layoutY="396.0" mnemonicParsing="false" onMouseClicked="#onClickSaveButton" prefHeight="35.0" prefWidth="200.0" text="Guardar">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Button>
+      <Label layoutX="65.0" layoutY="137.0" text="Comprado" textFill="#ba7e37">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="compradoTextField" layoutX="66.0" layoutY="178.0" prefHeight="26.0" prefWidth="250.0" />
+      <Label fx:id="alertLabel" layoutX="76.0" layoutY="328.0" prefHeight="26.0" prefWidth="448.0" style="-fx-alignment: center;" textFill="#ba7e37">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="65.0" layoutY="62.0" text="ID" textFill="#ba7e37">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="idTextField" layoutX="66.0" layoutY="95.0" prefHeight="26.0" prefWidth="250.0" />
+      <Label layoutX="61.0" layoutY="235.0" text="Gastado" textFill="#ba7e37">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="gastadoTextField" layoutX="62.0" layoutY="276.0" prefHeight="26.0" prefWidth="250.0" />
+    </children>
+</AnchorPane>

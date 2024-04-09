@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="562.0" prefWidth="789.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alilopez.application.controllers.NewVentaLocalController">
+   <children>
+      <ImageView fitHeight="591.0" fitWidth="910.0" layoutX="-9.0" layoutY="-15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/CUsersmaxdiIdeaProjectsCafeBalamsrcmainresourcesimgfondo-home-cafebalam.png.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="closeButton" layoutX="449.0" layoutY="440.0" mnemonicParsing="false" onMouseClicked="#onClickCloseButton" prefHeight="35.0" prefWidth="200.0" text="Cerrar">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="254.0" layoutY="70.0" style="-fx-alignment: center;" text="Tipo de Producto" textAlignment="CENTER" textFill="#ba7e37">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="258.0" layoutY="175.0" text="Cantidad" textFill="#ba7e37">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cantidadTxt" layoutX="254.0" layoutY="207.0" prefHeight="50.0" prefWidth="298.0" promptText="500g" />
+      <Button fx:id="saveButton" layoutX="181.0" layoutY="440.0" mnemonicParsing="false" onMouseClicked="#onClickSaveButton" prefHeight="35.0" prefWidth="200.0" text="Guardar">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="alertLabel" layoutX="206.0" layoutY="374.0" prefHeight="22.0" prefWidth="393.0" style="-fx-alignment: center;">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="256.0" layoutY="270.0" style="-fx-alignment: center;" text="Descuento Local (Opcional)" textAlignment="CENTER" textFill="#ba7e37">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="descuentoTxt" layoutX="254.0" layoutY="304.0" prefHeight="50.0" prefWidth="298.0" promptText="0.00" />
+      <ComboBox fx:id="tipoComboBox" layoutX="253.0" layoutY="106.0" onAction="#onActionTipoComboBox" prefHeight="50.0" prefWidth="298.0" promptText="Seleccionar" />
+   </children>
+</AnchorPane>
