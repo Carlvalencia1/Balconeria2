@@ -52,12 +52,12 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente" +
+        return
                 "Nombre: " + nombre + "\n" +
-                "Lastname: " + lastname + "\n" +
-                "Correo: " + correo + "\n" +
+                "Apellidos: " + lastname + "\n" +
+                "ID cliente: " + correo + "\n" +
                 "Telefono: " + telefono + "\n" +
-                "Gastado: " + gastado + "\n" +
-                "Comprado: " + comprado + "\n";
+                "Precio total: " + gastado + "\n" +
+                "Cantidad de trabajo: " + comprado + "\n";
     }
 }

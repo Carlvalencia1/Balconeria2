@@ -9,30 +9,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="562.0" prefWidth="789.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alilopez.application.controllers.NewVentaNacionalController">
+<AnchorPane prefHeight="562.0" prefWidth="789.0" style="-fx-background-color: #75B9E5;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alilopez.application.controllers.NewVentaNacionalController">
    <children>
-      <ImageView fitHeight="563.0" fitWidth="790.0" layoutX="2.0" pickOnBounds="true">
-         <image>
-            <Image url="@../../../img/ventanaschicas-cafebalam.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="closeButton" layoutX="407.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#onClickCloseButton" prefHeight="35.0" prefWidth="200.0" text="Cerrar">
+      <Button fx:id="closeButton" layoutX="407.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#onClickCloseButton" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #FF3131;" text="Salir" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Label layoutX="55.0" layoutY="109.0" style="-fx-alignment: center;" text="Tipo de Producto" textAlignment="CENTER" textFill="#ba7e37">
+      <Label layoutX="55.0" layoutY="109.0" style="-fx-alignment: center;" text="Tipo de Producto" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="59.0" layoutY="207.0" text="Cantidad" textFill="#ba7e37">
+      <Label layoutX="59.0" layoutY="207.0" text="Cantidad">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
       <TextField fx:id="cantidadTxt" layoutX="55.0" layoutY="239.0" prefHeight="50.0" prefWidth="298.0" />
-      <Button fx:id="saveButton" layoutX="141.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#onClickSaveButton" prefHeight="35.0" prefWidth="200.0" text="Guardar">
+      <Button fx:id="saveButton" layoutX="141.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#onClickSaveButton" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #7ED957;" text="Guardar" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -42,18 +37,23 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="397.0" layoutY="109.0" style="-fx-alignment: center;" text="Dirección" textAlignment="CENTER" textFill="#ba7e37">
+      <Label layoutX="397.0" layoutY="109.0" style="-fx-alignment: center;" text="Dirección" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
       <TextField fx:id="direccionTxt" layoutX="395.0" layoutY="146.0" prefHeight="50.0" prefWidth="298.0" />
-      <Label layoutX="397.0" layoutY="207.0" style="-fx-alignment: center;" text="Costo Envio" textAlignment="CENTER" textFill="#ba7e37">
+      <Label layoutX="397.0" layoutY="207.0" style="-fx-alignment: center;" text="Costo por traslado" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
       <TextField fx:id="costoEnvioTxt" layoutX="395.0" layoutY="239.0" prefHeight="50.0" prefWidth="298.0" />
       <ComboBox fx:id="tipoComboBox" layoutX="55.0" layoutY="146.0" onAction="#onActionTipoComboBox" prefHeight="50.0" prefWidth="298.0" promptText="Seleccionar" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="646.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/Logo.PNG" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

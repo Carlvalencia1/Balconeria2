@@ -114,7 +114,7 @@ public class NewUsuarioController {
     }
     @FXML
     void initialize() {
-        ObservableList <String> list = FXCollections.observableArrayList("Empleado", "Capturista");
+        ObservableList <String> list = FXCollections.observableArrayList("Gerente", "Empleado");
         cargoComboBox.setItems(list);
     }
 

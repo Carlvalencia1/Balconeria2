@@ -33,6 +33,9 @@ public class HomeAdminController {
     private Button inventarioButton;
 
     @FXML
+    private Button materialesButton;
+
+    @FXML
     private Button usuarioButton;
 
     @FXML
@@ -107,6 +110,11 @@ public class HomeAdminController {
     void onClickInventarioButton(MouseEvent event) throws IOException {
         App escena = new App();
         escena.changeScene("inventario-view.fxml");
+    }
+
+    @FXML
+    void onClickMaterialesButton(MouseEvent event) {
+
     }
 
     @FXML

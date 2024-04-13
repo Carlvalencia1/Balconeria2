@@ -31,11 +31,11 @@ AnchorPane > AnchorPane > Button:pressed {
     -fx-text-fill: #000000;
 }
 .table-view {
-    -fx-background-color: #026336;
+    -fx-background-color: #8f8e8e;
 }
 
 .table-row-cell {
-    -fx-background-color: #026336;
+    -fx-background-color: #8f8e8e;
     -fx-text-fill: white;
 }
 
@@ -45,7 +45,7 @@ AnchorPane > AnchorPane > Button:pressed {
 }
 
 .table-row-cell:selected {
-    -fx-background-color: #006e3b;
+    -fx-background-color: #8f8e8e;
 }
 
 .table-view .column-header {

@@ -12,7 +12,7 @@
     <children>
       <ImageView fitHeight="800.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../img/fondo-home-cafebalam.png" />
+            <Image url="@../../../img/Fondo-login.PNG" />
          </image>
       </ImageView>
         <TableView fx:id="usuariosTable" layoutX="225.0" layoutY="235.0" prefHeight="390.0" prefWidth="882.0">
@@ -25,30 +25,14 @@
                 <TableColumn fx:id="colId" prefWidth="188.0" text="ID" />
             </columns>
         </TableView>
-      <Button fx:id="exitButton" layoutX="549.0" layoutY="677.0" mnemonicParsing="false" onMouseClicked="#onMouseClickExitButton" prefHeight="64.0" prefWidth="206.0" text="Salir">
+      <Button fx:id="exitButton" layoutX="549.0" layoutY="677.0" mnemonicParsing="false" onMouseClicked="#onMouseClickExitButton" prefHeight="64.0" prefWidth="206.0" style="-fx-background-color: #FF3131;" text="Salir" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="55.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/salir-alt.png" />
-               </image>
-            </ImageView>
-         </graphic>
       </Button>
-      <AnchorPane layoutX="475.0" layoutY="93.0" prefHeight="92.0" prefWidth="632.0" style="-fx-background-color: #6B400F;">
+      <AnchorPane layoutX="23.0" layoutY="235.0" prefHeight="394.0" prefWidth="197.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Button fx:id="editarButton" layoutX="39.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#onClickEditarButton" prefHeight="38.0" prefWidth="111.0" text="Editar">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../img/editar.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="buscarButton" layoutX="196.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#onClickBuscarButton" prefHeight="29.0" prefWidth="111.0" text="Buscar">
+            <Button fx:id="buscarButton" layoutX="47.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#onClickBuscarButton" prefHeight="29.0" prefWidth="111.0" style="-fx-background-color: #8f8e8e;" text="Buscar">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -57,7 +41,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="addButton" layoutX="341.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#onClickAddButton" prefHeight="29.0" prefWidth="111.0" text="Agregar">
+            <Button fx:id="addButton" layoutX="28.0" layoutY="115.0" mnemonicParsing="false" onMouseClicked="#onClickAddButton" prefHeight="65.0" prefWidth="148.0" style="-fx-background-color: #8f8e8e;" text="Agregar">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -66,7 +50,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="removeButton" layoutX="488.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#onClickRemoveButton" prefHeight="29.0" prefWidth="111.0" text="Eliminar">
+            <Button fx:id="removeButton" layoutX="31.0" layoutY="219.0" mnemonicParsing="false" onMouseClicked="#onClickRemoveButton" prefHeight="87.0" prefWidth="140.0" style="-fx-background-color: #8f8e8e;" text="Eliminar">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -77,5 +61,14 @@
             </Button>
          </children>
       </AnchorPane>
+      <Button fx:id="editarButton" layoutX="342.0" layoutY="158.0" mnemonicParsing="false" onMouseClicked="#onClickEditarButton" prefHeight="38.0" prefWidth="111.0" text="Editar" visible="false">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/editar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
     </children>
 </AnchorPane>

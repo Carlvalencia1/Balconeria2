@@ -26,7 +26,7 @@ public class BuscarUsuarioController {
     void onClickBuscarButton(MouseEvent event) {
         String contenido = null;
         if (App.getTienda().searchUsuario(idTextfield.getText()) == null) {
-            contenido = "No se encontró un usuario con ese ID";
+            contenido = "No se encontró un usuario";
         } else {
             contenido = App.getTienda().searchProducto(idTextfield.getText());
         }

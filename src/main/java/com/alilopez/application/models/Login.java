@@ -3,8 +3,8 @@ package com.alilopez.application.models;
 import com.alilopez.application.App;
 
 public class Login {
-    private String adminId = "admin";
-    private String adminPassword = "123";
+    private String adminId = "Balconeria";
+    private String adminPassword = "1111";
     private String id;
     private String password;
     private short access;

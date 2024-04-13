@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="562.0" prefWidth="789.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alilopez.application.controllers.NewUsuarioController">
+<AnchorPane prefHeight="562.0" prefWidth="789.0" style="-fx-background-color: #75B9E5;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alilopez.application.controllers.NewUsuarioController">
     <children>
-      <ImageView fitHeight="566.0" fitWidth="884.0" layoutX="-44.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../img/CUsersmaxdiIdeaProjectsCafeBalamsrcmainresourcesimgfondo-home-cafebalam.png.png" />
-         </image>
-      </ImageView>
-        <Button fx:id="closeButton" layoutX="476.0" layoutY="474.0" mnemonicParsing="false" onMouseClicked="#onClickCloseButton" prefHeight="35.0" prefWidth="200.0" text="Cerrar">
+        <Button fx:id="closeButton" layoutX="476.0" layoutY="474.0" mnemonicParsing="false" onMouseClicked="#onClickCloseButton" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #FF3131;" text="Salir" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Button>
-        <Label layoutX="37.0" layoutY="36.0" style="-fx-alignment: center;" text="Nombre" textAlignment="CENTER" textFill="#ba7e37">
+        <Label layoutX="37.0" layoutY="36.0" style="-fx-alignment: center;" text="Nombre" textAlignment="CENTER">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
         <TextField fx:id="nombreTextfield" layoutX="39.0" layoutY="58.0" prefHeight="50.0" prefWidth="298.0" />
-        <Label layoutX="39.0" layoutY="119.0" text="Apellido Paterno:" textFill="#ba7e37">
+        <Label layoutX="39.0" layoutY="119.0" text="Apellidos">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
         <TextField fx:id="lastnameTextfield" layoutX="35.0" layoutY="151.0" prefHeight="50.0" prefWidth="298.0" />
-        <Button fx:id="saveButton" layoutX="77.0" layoutY="474.0" mnemonicParsing="false" onMouseClicked="#onClickSaveButton" prefHeight="35.0" prefWidth="200.0" text="Guardar">
+        <Button fx:id="saveButton" layoutX="77.0" layoutY="474.0" mnemonicParsing="false" onMouseClicked="#onClickSaveButton" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #7ED957;" text="Guardar" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
@@ -39,35 +38,40 @@
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
-        <Label layoutX="37.0" layoutY="214.0" style="-fx-alignment: center;" text="Correo" textAlignment="CENTER" textFill="#ba7e37">
+        <Label layoutX="37.0" layoutY="214.0" style="-fx-alignment: center;" text="Correo" textAlignment="CENTER">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
         <TextField fx:id="correoTextField" layoutX="35.0" layoutY="248.0" prefHeight="50.0" prefWidth="298.0" />
-        <Label layoutX="399.0" layoutY="36.0" style="-fx-alignment: center;" text="Cargo" textAlignment="CENTER" textFill="#ba7e37">
+        <Label layoutX="399.0" layoutY="36.0" style="-fx-alignment: center;" text="Cargo" textAlignment="CENTER">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
-        <Label layoutX="37.0" layoutY="312.0" style="-fx-alignment: center;" text="Edad" textAlignment="CENTER" textFill="#ba7e37">
+        <Label layoutX="37.0" layoutY="312.0" style="-fx-alignment: center;" text="Edad" textAlignment="CENTER">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
         <TextField fx:id="edadTextfield" layoutX="35.0" layoutY="344.0" prefHeight="50.0" prefWidth="298.0" />
-      <Label layoutX="401.0" layoutY="119.0" style="-fx-alignment: center;" text="ID" textAlignment="CENTER" textFill="#ba7e37">
+      <Label layoutX="401.0" layoutY="119.0" style="-fx-alignment: center;" text="Usuario " textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
       <TextField fx:id="idTextField" layoutX="399.0" layoutY="151.0" prefHeight="50.0" prefWidth="298.0" />
-      <Label layoutX="401.0" layoutY="214.0" style="-fx-alignment: center;" text="Contraseña" textAlignment="CENTER" textFill="#ba7e37">
+      <Label layoutX="401.0" layoutY="214.0" style="-fx-alignment: center;" text="Contraseña" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
       <TextField fx:id="passwordTextField" layoutX="395.0" layoutY="248.0" prefHeight="50.0" prefWidth="298.0" />
       <ComboBox fx:id="cargoComboBox" layoutX="399.0" layoutY="61.0" onAction="#selectComboBox" prefHeight="50.0" prefWidth="298.0" promptText="Seleccionar" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="633.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/Logo.PNG" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

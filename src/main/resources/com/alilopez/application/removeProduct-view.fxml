@@ -4,30 +4,23 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="334.0" prefWidth="583.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alilopez.application.controllers.RemoveProductController">
+<AnchorPane prefHeight="334.0" prefWidth="583.0" style="-fx-background-color: #75B9E5;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alilopez.application.controllers.RemoveProductController">
     <children>
-      <ImageView fitHeight="347.0" fitWidth="592.0" layoutX="-8.0" layoutY="-12.0" pickOnBounds="true">
-         <image>
-            <Image url="@../../../img/ventanasChatas.png" />
-         </image>
-      </ImageView>
-        <Button fx:id="closeButton" layoutX="317.0" layoutY="200.0" mnemonicParsing="false" onMouseClicked="#onClickCloseButton" prefHeight="35.0" prefWidth="200.0" text="Cerrar">
+        <Button fx:id="closeButton" layoutX="175.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#onClickCloseButton" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #7ED957;" text="Salir" textFill="#ebebeb">
             <font>
                 <Font size="20.0" />
             </font>
         </Button>
         <TextField fx:id="idTextfield" layoutX="67.0" layoutY="100.0" prefHeight="50.0" prefWidth="300.0" visible="false" />
-        <Label layoutX="67.0" layoutY="53.0" text="Seleccione el tipo de producto" textFill="#ba7e37">
+        <Label layoutX="67.0" layoutY="53.0" text="Seleccione el trabajo a eliminar">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
-        <Button fx:id="removeButton" layoutX="67.0" layoutY="200.0" mnemonicParsing="false" onMouseClicked="#onClickRemoveButton" prefHeight="35.0" prefWidth="200.0" text="Eliminar">
+        <Button fx:id="removeButton" layoutX="367.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#onClickRemoveButton" prefHeight="50.0" prefWidth="163.0" style="-fx-background-color: #FF3131;" text="Eliminar" textFill="WHITE">
             <font>
                 <Font size="20.0" />
             </font>

@@ -13,57 +13,48 @@
    <children>
       <ImageView fitHeight="800.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../img/fondo-home-cafebalam.png" />
+            <Image url="@../../../img/Fondo-login.PNG" />
          </image>
       </ImageView>
-      <Button fx:id="salirButton" layoutX="172.0" layoutY="580.0" mnemonicParsing="false" onMouseClicked="#onClickSalirButton" prefHeight="78.0" prefWidth="198.0" text="SALIR">
+      <Button fx:id="salirButton" layoutX="892.0" layoutY="607.0" mnemonicParsing="false" onMouseClicked="#onClickSalirButton" prefHeight="78.0" prefWidth="198.0" style="-fx-background-color: #FF3131;" text="SALIR" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="72.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/salir-alt.png" />
-               </image>
-            </ImageView>
-         </graphic>
       </Button>
-      <Button fx:id="loginButton" layoutX="172.0" layoutY="470.0" mnemonicParsing="false" onMouseClicked="#onClickLoginButton" prefHeight="78.0" prefWidth="198.0" text="INICIAR SESIÓN">
+      <Button fx:id="loginButton" layoutX="894.0" layoutY="485.0" mnemonicParsing="false" onMouseClicked="#onClickLoginButton" prefHeight="78.0" prefWidth="198.0" style="-fx-background-color: #7ED957;" text="INICIAR SESIÓN" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="72.0" fitWidth="47.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/salir-alt.png" />
-               </image>
-            </ImageView>
-         </graphic>
       </Button>
-      <Label layoutX="172.0" layoutY="231.0" prefHeight="20.0" prefWidth="78.0" text="Usuario:" textFill="#ba7e37">
+      <Label layoutX="913.0" layoutY="235.0" prefHeight="25.0" prefWidth="158.0" text="Ingresa tú usuario:" textFill="#8f8e8e">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="userTxt" layoutX="172.0" layoutY="265.0" onKeyTyped="#keyInputUserTxt" prefHeight="46.0" prefWidth="198.0" promptText="Usuario">
+      <TextField fx:id="userTxt" layoutX="890.0" layoutY="275.0" onKeyTyped="#keyInputUserTxt" prefHeight="46.0" prefWidth="198.0" promptText="Usuario">
          <font>
             <Font size="16.0" />
          </font>
       </TextField>
-      <Label layoutX="172.0" layoutY="317.0" prefHeight="27.0" prefWidth="110.0" text="Contraseña:" textFill="#ba7e37">
+      <Label layoutX="908.0" layoutY="343.0" prefHeight="27.0" prefWidth="178.0" text="Ingresa la contraseña:" textFill="#8f8e8e">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <PasswordField fx:id="passwordTxt" layoutX="172.0" layoutY="358.0" onKeyTyped="#keyInputPasswordTxt" prefHeight="54.0" prefWidth="198.0" promptText="Contraseña">
+      <PasswordField fx:id="passwordTxt" layoutX="897.0" layoutY="385.0" onKeyTyped="#keyInputPasswordTxt" prefHeight="54.0" prefWidth="198.0" promptText="Contraseña">
          <font>
             <Font size="16.0" />
          </font>
       </PasswordField>
-      <Label fx:id="wrongLabel" alignment="CENTER" layoutX="200.0" layoutY="416.0" prefHeight="32.0" prefWidth="142.0" text="Datos Incorrectos" textFill="#e11111" visible="false">
+      <Label fx:id="wrongLabel" alignment="CENTER" layoutX="918.0" layoutY="327.0" prefHeight="32.0" prefWidth="142.0" text="Datos Incorrectos" textFill="#e11111" visible="false">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
+      <ImageView fitHeight="354.0" fitWidth="299.0" layoutX="167.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/Logo.PNG" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
