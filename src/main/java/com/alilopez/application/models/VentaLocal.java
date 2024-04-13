@@ -1,14 +1,14 @@
 package com.alilopez.application.models;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class VentaLocal extends Venta{
     private float descuentoLocal = 0;
     private String idVendedor;
 
-    public VentaLocal(String idVenta, double monto, LocalDateTime fecha, double cantidad, float descuentoLocal, String idVendedor) {
-        super(idVenta, monto, fecha, cantidad);
+    public VentaLocal(String idVenta, double monto, LocalDate fecha, double cantidad, LocalTime hora, float descuentoLocal, String idVendedor) {
+        super(idVenta, monto, fecha, cantidad, hora);
         this.descuentoLocal = descuentoLocal;
         this.idVendedor = idVendedor;
     }
@@ -20,7 +20,7 @@ public class VentaLocal extends Venta{
                 "Id Vendedor: " + idVendedor +  '\n' +
                 "Id Venta: " + idVenta + '\n' +
                 "Monto: " + monto +  '\n' +
-                "Fecha: " + fecha.toLocalDate() +  '\n' +
+                "Fecha: " + fecha +  '\n' +
                 "Cantidad: " + cantidad +  '\n';
     }
 
@@ -28,7 +28,7 @@ public class VentaLocal extends Venta{
         return monto;
     }
 
-    public LocalDateTime getFecha(){
+    public LocalDate getFecha(){
         return fecha;
     }
 
@@ -47,4 +47,5 @@ public class VentaLocal extends Venta{
     public String getIdVendedor() {
         return idVendedor;
     }
+
 }

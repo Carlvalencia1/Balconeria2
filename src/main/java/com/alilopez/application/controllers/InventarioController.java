@@ -2,7 +2,6 @@ package com.alilopez.application.controllers;
 
 import com.alilopez.application.App;
 import com.alilopez.application.models.Cafe;
-import com.alilopez.application.models.Cliente;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,7 +10,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 

@@ -29,15 +29,37 @@ public class RemoveVentaNacionalController {
 
     @FXML
     void onClickRemoveButton(MouseEvent event) {
-        String id = idTextfield.getText();
-        if (App.getTienda().deleteVentaNacional(id)){
-            String contenido = "Se eliminó correctamente";
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(null);
-            alert.setContentText(contenido);
-            alert.showAndWait();
+        if (!idTextfield.getText().isEmpty() && idTextfield.getText().length() == 3) {
+            boolean status = false;
+            int index = 0;
+            while (!status && index < App.getTienda().getVentaNacionales().size()) {
+                if (App.getTienda().getVentaNacionales().get(index).getIdVenta().indexOf(idTextfield.getText()) >= 0 ) {
+                    status = true;
+                    if (App.getTienda().deleteVentaNacional(App.getTienda().getVentaNacionales().get(index).getIdVenta())){
+                        String contenido = "Se eliminó correctamente";
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setContentText(contenido);
+                        alert.showAndWait();
+                    } else {
+                        String contenido = "No se pudo eliminar";
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setContentText(contenido);
+                        alert.showAndWait();
+                    }
+                }
+                index++;
+            }
+            if (!status) {
+                String contenido = "ID inexistente";
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setContentText(contenido);
+                alert.showAndWait();
+            }
         } else {
-            String contenido = "No se pudo eliminar";
+            String contenido = "Ingrese los 3 dígitos";
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setContentText(contenido);

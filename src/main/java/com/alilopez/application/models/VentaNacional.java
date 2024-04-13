@@ -1,13 +1,14 @@
 package com.alilopez.application.models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class VentaNacional extends Venta{
     private float costoEnvio;
     private String direccion;
 
-    public VentaNacional(String idVenta, double monto, LocalDateTime date, double cantidad, float costoEnvio, String direccion) {
-        super(idVenta, monto, date, cantidad);
+    public VentaNacional(String idVenta, double monto, LocalDate date, double cantidad, LocalTime hora, float costoEnvio, String direccion) {
+        super(idVenta, monto, date, cantidad, hora);
         this.costoEnvio = costoEnvio;
         this.direccion = direccion;
     }
@@ -26,7 +27,7 @@ public class VentaNacional extends Venta{
                 "Dirección: " + direccion + '\n' +
                 "Id Venta: " + idVenta + '\n' +
                 "Monto: " + monto + '\n' +
-                "Fecha: " + fecha.toLocalDate() + '\n' +
+                "Fecha: " + fecha + '\n' +
                 "Cantidad: " + cantidad;
     }
 }

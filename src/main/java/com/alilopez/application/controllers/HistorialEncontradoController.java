@@ -52,6 +52,7 @@ public class HistorialEncontradoController {
         for (int i = 0; i < historial.size(); i++) {
             total += historial.get(i).getMonto();
         }
+
         monto.setText("" + total);
     }
 }

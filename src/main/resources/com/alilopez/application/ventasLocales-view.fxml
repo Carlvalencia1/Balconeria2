@@ -17,12 +17,12 @@
         </ImageView>
         <TableView fx:id="ventasLocalesTable" layoutX="194.0" layoutY="235.0" prefHeight="400.0" prefWidth="893.0">
             <columns>
-                <TableColumn fx:id="colIdVenta" prefWidth="269.86669921875" text="ID Venta" />
-                <TableColumn fx:id="colMonto" prefWidth="152.5333251953125" text="Monto" />
+                <TableColumn fx:id="colIdVenta" prefWidth="255.199951171875" text="ID Venta" />
+                <TableColumn fx:id="colMonto" prefWidth="168.00003051757812" text="Monto" />
                 <TableColumn fx:id="colFecha" prefWidth="82.13336181640625" text="Fecha " />
                 <TableColumn fx:id="colCantidad" minWidth="0.0" prefWidth="165.86663818359375" text="Cantidad" />
                 <TableColumn fx:id="colDescuento" prefWidth="100.53326416015625" text="Descuento" />
-                <TableColumn fx:id="colIDVendedor" prefWidth="134.40008544921875" text="ID Vendedor" />
+                <TableColumn fx:id="colIDVendedor" prefWidth="116.0" text="ID Vendedor" />
             </columns>
         </TableView>
       <Button fx:id="exitButton" layoutX="529.0" layoutY="657.0" mnemonicParsing="false" onMouseClicked="#onMouseClickExitButton" prefHeight="64.0" prefWidth="206.0" text="Salir">

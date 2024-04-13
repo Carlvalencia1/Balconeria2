@@ -1,7 +1,5 @@
 package com.alilopez.application.models;
 
-import java.util.Set;
-
 public class Usuario {
     private String nombre;
     private String apellido;

@@ -20,6 +20,12 @@ public class HistorialController {
     private TableColumn<Caja, LocalDate> colFecha;
 
     @FXML
+    private TableColumn<Caja, LocalDate> colSalida;
+
+    @FXML
+    private TableColumn<Caja, LocalDate> colEntrada;
+
+    @FXML
     private TableColumn<Caja, String> colIDVendedor;
 
     @FXML
@@ -52,6 +58,8 @@ public class HistorialController {
     @FXML
     public void initialize() {
         colFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        colEntrada.setCellValueFactory(new PropertyValueFactory<>("horaEntrada"));
+        colSalida.setCellValueFactory(new PropertyValueFactory<>("horaSalida"));
         colIDVendedor.setCellValueFactory(new PropertyValueFactory<>("idVendedor"));
         colMonto.setCellValueFactory(new PropertyValueFactory<>("monto"));
         ObservableList<Caja> historial = FXCollections.observableArrayList(App.getTienda().getHistorial());

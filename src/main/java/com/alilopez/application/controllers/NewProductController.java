@@ -2,16 +2,12 @@ package com.alilopez.application.controllers;
 
 import com.alilopez.application.App;
 import com.alilopez.application.models.Cafe;
-import com.alilopez.application.models.Cliente;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-
-import java.util.UUID;
 
 public class NewProductController {
 

@@ -1,7 +1,7 @@
 package com.alilopez.application.controllers;
 
 import com.alilopez.application.App;
-import com.alilopez.application.models.*;
+import com.alilopez.application.models.VentaNacional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,11 +11,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class VentasNacionalesController {
 
@@ -74,7 +72,15 @@ public class VentasNacionalesController {
 
     @FXML
     void onClickRemoveButton(MouseEvent event) {
-        App.newStage("removeVentaNacional-view", "App - Eliminar Venta Nacional");
+        if (App.getCaja().isStatus() == false) {
+            App.newStage("removeVentaNacional-view", "App - Eliminar Venta Nacional");
+        } else {
+            String contenido = "Cierre Caja para remover una Venta";
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText(contenido);
+            alert.showAndWait();
+        }
     }
 
     @FXML

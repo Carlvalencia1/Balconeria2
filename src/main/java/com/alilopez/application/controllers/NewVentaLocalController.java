@@ -53,11 +53,20 @@ public class NewVentaLocalController {
                 }
                 String tipo = tipoComboBox.getValue();
                 if (App.getTienda().addVentaLocal(cantidad, tipo, descuento)) {
-                    String contenido = "Venta Registrada";
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText(null);
-                    alert.setContentText(contenido);
-                    alert.showAndWait();
+                    if (App.getTienda().warningCantidad(tipo)) {
+                        String contenido = "Venta Registrada" + '\n' + "Solo le quedan menos de 10 unidades de este producto";
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setContentText(contenido);
+                        alert.showAndWait();
+                    } else {
+                        String contenido = "Venta registrada";
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setContentText(contenido);
+                        alert.showAndWait();
+                    }
+
                 } else {
                     String contenido = "No se pudo realizar la venta";
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);

@@ -3,7 +3,8 @@ package com.alilopez.application.models;
 import com.alilopez.application.App;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -54,34 +55,36 @@ public class Tienda {
         return historialEncontrado;
     }
 
-    public boolean closeCaja(LocalDateTime entrada, LocalDateTime salida){
+    public boolean closeCaja(LocalTime entrada, LocalTime salida){
         double total = 0;
         for (int i = 0; i < ventasLocales.size(); i++) {
             VentaLocal ventaAux = ventasLocales.get(i);
-            if (ventaAux.getFecha().isAfter(entrada) && ventaAux.getFecha().isBefore(salida)) {
+            if (ventaAux.getHora().isAfter(entrada) && ventaAux.getHora().isBefore(salida)) {
                 total += ventaAux.getMonto();
             }
         }
         for (int i = 0; i < ventaNacionales.size(); i++) {
             VentaNacional ventaAux = ventaNacionales.get(i);
-            if (ventaAux.getFecha().isAfter(entrada) && ventaAux.getFecha().isBefore(salida)){
+            if (ventaAux.getHora().isAfter(entrada) && ventaAux.getHora().isBefore(salida)){
                 total += ventaAux.getMonto();
             }
-        }
-        Caja caja = new Caja(LocalDateTime.now(), App.getUser().getId(), total);
+        };
+        Caja caja = new Caja(LocalDate.now(), entrada, salida, App.getUser().getId(), total);
         return historial.add(caja);
     }
 
 
     public boolean addCliente(Cliente cliente){
         boolean flag = false;
-        for (int i = 0; i < clientes.size(); i++) {
-            if (cliente.getCorreo().equals(clientes.get(i).getCorreo()) && !flag) {
-                flag = true;
+        if (cliente.getComprado() >= 0 && cliente.getGastado() >= 0) {
+            for (int i = 0; i < clientes.size(); i++) {
+                if (cliente.getCorreo().equals(clientes.get(i).getCorreo()) && !flag) {
+                    flag = true;
+                }
             }
-        }
-        if (!flag) {
-            clientes.add(cliente);
+            if (!flag) {
+                clientes.add(cliente);
+            }
         }
         return flag;
     }
@@ -101,15 +104,22 @@ public class Tienda {
         boolean flag = false;
         for (int i = 0; i < productos.size(); i++) {
             if (tipo.equals(productos.get(i).getTipo()) && !flag && cantidad <= productos.get(i).getCantidad()){
-                flag = true;
-                double restante = productos.get(i).getCantidad() - cantidad;
-                productos.get(i).setCantidad(restante);
+                if (cantidad > 0) {
+                    double restante = productos.get(i).getCantidad() - cantidad;
+                    productos.get(i).setCantidad(restante);
+                }
                 String id = UUID.randomUUID().toString();
                 double monto = (productos.get(i).getPrecio()*cantidad)-descuento;
-                LocalDateTime fecha = LocalDateTime.now();
-                String idVendedor = App.getUser().getId();
-                VentaLocal ventaLocal = new VentaLocal(id, monto, fecha, cantidad, descuento, idVendedor);
-                ventasLocales.add(ventaLocal);
+                if (monto > 0){
+                    LocalDate fecha = LocalDate.now();
+                    LocalTime hora = LocalTime.now();
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+                    LocalTime horaVenta = LocalTime.parse(hora.format(formatter));
+                    String idVendedor = App.getUser().getId();
+                    VentaLocal ventaLocal = new VentaLocal(id, monto, fecha, cantidad, horaVenta , descuento, idVendedor);
+                    ventasLocales.add(ventaLocal);
+                    flag = true;
+                }
             }
         }
         return flag;
@@ -118,39 +128,51 @@ public class Tienda {
         boolean flag = false;
         for (int i = 0; i < productos.size(); i++) {
             if (tipo.equals(productos.get(i).getTipo()) && !flag && cantidad <= productos.get(i).getCantidad()){
-                flag = true;
-                double restante = productos.get(i).getCantidad() - cantidad;
-                productos.get(i).setCantidad(restante);
-                String id = UUID.randomUUID().toString();
+                if (cantidad > 0) {
+                    double restante = productos.get(i).getCantidad() - cantidad;
+                    productos.get(i).setCantidad(restante);
+                }
                 double monto = productos.get(i).getPrecio()*cantidad;
-                LocalDateTime fecha = LocalDateTime.now();
-                VentaNacional ventaNacional = new VentaNacional(id, monto, fecha, cantidad, costoEnvio, direccion);
-                ventaNacionales.add(ventaNacional);
+                if (monto > 0 && costoEnvio > 0) {
+                    String id = UUID.randomUUID().toString();
+                    LocalDate fecha = LocalDate.now();
+                    LocalTime hora = LocalTime.now();
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+                    LocalTime horaVenta = LocalTime.parse(hora.format(formatter));
+                    VentaNacional ventaNacional = new VentaNacional(id, monto, fecha, cantidad, horaVenta , costoEnvio, direccion);
+                    ventaNacionales.add(ventaNacional);
+                    flag = true;
+                }
             }
         }
         return flag;
     }
     public boolean addProducto(Cafe cafe){
         boolean flag = true;
-        for (int i = 0; i < productos.size(); i++) {
-            if (cafe.getTipo().equals(productos.get(i).getTipo()) && flag){
-                flag = false;
+        if (cafe.getCantidad() >= 0 && cafe.getPrecio() >= 0 && cafe.getCosto() >= 0 && cafe.getPeso() > 0) {
+            for (int i = 0; i < productos.size(); i++) {
+                if (cafe.getTipo().equals(productos.get(i).getTipo()) && flag){
+                    flag = false;
+                }
             }
-        }
-        if (flag) {
-            productos.add(cafe);
-            tiposProductos.add(cafe.getTipo());
+            if (flag) {
+                productos.add(cafe);
+                tiposProductos.add(cafe.getTipo());
+            }
         }
         return flag;
     }
     public boolean updateClient(String correo, float comprado, float gastado){
         boolean flag = false;
-        for (int i = 0; i < clientes.size(); i++) {
-            String userMail = clientes.get(i).getCorreo();
-            if (userMail.equals(correo) && !flag && comprado>=0 && gastado>=0){
-                flag = true;
-                clientes.get(i).setComprado(comprado);
-                clientes.get(i).setGastado(gastado);
+        if (comprado >= 0 && gastado >= 0) {
+            for (int i = 0; i < clientes.size(); i++) {
+                String userMail = clientes.get(i).getCorreo();
+                if (userMail.equals(correo) && !flag){
+                    flag = true;
+                    clientes.get(i).setComprado(comprado);
+                    clientes.get(i).setGastado(gastado);
+                    i = clientes.size();
+                }
             }
         }
         return flag;
@@ -164,6 +186,7 @@ public class Tienda {
                 flag = true;
                 usuarios.get(i).setEdad(edad);
                 usuarios.get(i).setPassword(pass);
+                i = usuarios.size();
             }
         }
         return flag;
@@ -176,6 +199,7 @@ public class Tienda {
             if (userID.equals(id) && !flag){
                 flag = true;
                 usuarios.get(i).setPassword(pass);
+                i = usuarios.size();
             }
         }
         return flag;
@@ -189,6 +213,7 @@ public class Tienda {
                 productos.get(i).setCantidad(cantidad);
                 productos.get(i).setPrecio(precio);
                 productos.get(i).setCosto(costo);
+                i = productos.size();
             }
         }
         return flag;
@@ -200,6 +225,7 @@ public class Tienda {
             if (productId.equals(id) && !flag && cantidad>=0){
                 flag = true;
                 productos.get(i).setCantidad(cantidad);
+                i = productos.size();
             }
         }
         return flag;
@@ -213,6 +239,7 @@ public class Tienda {
             if (userId.equals(id) && !flag){
                 b = usuarios.get(i).toString();
                 flag = true;
+                i = usuarios.size();
             }
         }
         return b;
@@ -224,6 +251,7 @@ public class Tienda {
             if (userId.equals(id) && !flag){
                 usuarios.remove(i);
                 flag = true;
+                i = usuarios.size();
             }
         }
         return flag;
@@ -233,8 +261,18 @@ public class Tienda {
         for (int i = 0; i < ventasLocales.size(); i++) {
             String idVenta = ventasLocales.get(i).getIdVenta();
             if (idVenta.equals(id) && !flag){
-                ventasLocales.remove(i);
-                flag = true;
+                for (int j = 0; j < historial.size(); j++) {
+                    LocalTime hora = ventasLocales.get(i).getHora();
+                    LocalTime entrada = historial.get(j).getHoraEntrada();
+                    LocalTime salida = historial.get(j).getHoraSalida();
+                    if (hora.isAfter(entrada) && hora.isBefore(salida)) {
+                        historial.get(j).setMonto(historial.get(j).getMonto()-ventasLocales.get(i).getMonto());
+                        ventasLocales.remove(i);
+                        flag = true;
+                        j = historial.size();
+                        i = ventasLocales.size();
+                    }
+                }
             }
         }
         return flag;
@@ -245,8 +283,18 @@ public class Tienda {
         for (int i = 0; i < ventaNacionales.size(); i++) {
             String idVenta = ventaNacionales.get(i).getIdVenta();
             if (idVenta.equals(id) && !flag){
-                ventaNacionales.remove(i);
-                flag = true;
+                for (int j = 0; j < historial.size(); j++) {
+                    LocalTime hora = ventaNacionales.get(i).getHora();
+                    LocalTime entrada = historial.get(j).getHoraEntrada();
+                    LocalTime salida = historial.get(j).getHoraSalida();
+                    if (hora.isAfter(entrada) && hora.isBefore(salida)) {
+                        historial.get(j).setMonto(historial.get(j).getMonto()-ventaNacionales.get(i).getMonto());
+                        ventaNacionales.remove(i);
+                        flag = true;
+                        j = historial.size();
+                        i = ventaNacionales.size();
+                    }
+                }
             }
         }
         return flag;
@@ -259,6 +307,7 @@ public class Tienda {
             if (clientMail.equals(mail) && !flag){
                 b = clientes.get(i).toString();
                 flag = true;
+                i = clientes.size();
             }
         }
         return b;
@@ -272,6 +321,7 @@ public class Tienda {
             if (productId.equals(id) && !flag){
                 b = productos.get(i).toString();
                 flag = true;
+                i = productos.size();
             }
         }
         return b;
@@ -280,7 +330,7 @@ public class Tienda {
         boolean flag = false;
         ArrayList<VentaLocal> aux = new ArrayList<>();
         for (int i = 0; i < ventasLocales.size(); i++) {
-            LocalDate date = ventasLocales.get(i).getFecha().toLocalDate();
+            LocalDate date = ventasLocales.get(i).getFecha();
             if (date.equals(fecha)) {
                 aux.add(ventasLocales.get(i));
             }
@@ -295,7 +345,7 @@ public class Tienda {
         ArrayList<VentaLocal> aux = new ArrayList<>();
         boolean flag = false;
         for (int i = 0; i < ventasLocales.size(); i++) {
-            LocalDate date = ventasLocales.get(i).getFecha().toLocalDate();
+            LocalDate date = ventasLocales.get(i).getFecha();
             if ((date.isEqual(fecha) || date.isAfter(fecha)) && (date.isEqual(fecha2) || date.isBefore(fecha2))) {
                 aux.add(ventasLocales.get(i));
             }
@@ -311,7 +361,7 @@ public class Tienda {
         ArrayList<VentaNacional> aux = new ArrayList<>();
         boolean flag = false;
         for (int i = 0; i < ventaNacionales.size(); i++) {
-            LocalDate date = ventaNacionales.get(i).getFecha().toLocalDate();
+            LocalDate date = ventaNacionales.get(i).getFecha();
             if (date.equals(fecha)) {
                 aux.add(ventaNacionales.get(i));
             }
@@ -327,7 +377,7 @@ public class Tienda {
         ArrayList<VentaNacional> aux = new ArrayList<>();
         boolean flag = false;
         for (int i = 0; i < ventaNacionales.size(); i++) {
-            LocalDate date = ventaNacionales.get(i).getFecha().toLocalDate();
+            LocalDate date = ventaNacionales.get(i).getFecha();
             if ((date.isEqual(fecha) || date.isAfter(fecha)) && (date.isEqual(fecha2) || date.isBefore(fecha2))) {
                 aux.add(ventaNacionales.get(i));
             }
@@ -343,7 +393,7 @@ public class Tienda {
         ArrayList<Caja> aux = new ArrayList<>();
         boolean flag = false;
         for (int i = 0; i < historial.size(); i++) {
-            LocalDate date = historial.get(i).getFecha().toLocalDate();
+            LocalDate date = historial.get(i).getFecha();
             if (date.equals(fecha)) {
                 aux.add(historial.get(i));
             }
@@ -358,7 +408,7 @@ public class Tienda {
         ArrayList<Caja> aux = new ArrayList<>();
         boolean flag = false;
         for (int i = 0; i < historial.size(); i++) {
-            LocalDate date = historial.get(i).getFecha().toLocalDate();
+            LocalDate date = historial.get(i).getFecha();
             if ((date.isEqual(fecha) || date.isAfter(fecha)) && (date.isEqual(fecha2) || date.isBefore(fecha2))) {
                 aux.add(historial.get(i));
             }
@@ -376,6 +426,7 @@ public class Tienda {
             if (clienteMail.equals(correo) && !flag){
                 clientes.remove(i);
                 flag = true;
+                i = clientes.size();
             }
         }
         return flag;
@@ -388,6 +439,17 @@ public class Tienda {
             if (productId.equals(id) && !flag){
                 tiposProductos.remove(i);
                 productos.remove(i);
+                flag = true;
+                i = productos.size();
+            }
+        }
+        return flag;
+    }
+
+    public boolean warningCantidad(String tipo){
+        boolean flag = false;
+        for (int i = 0; i < productos.size(); i++) {
+            if (productos.get(i).getTipo().equals(tipo) && productos.get(i).getCantidad() < 10) {
                 flag = true;
             }
         }

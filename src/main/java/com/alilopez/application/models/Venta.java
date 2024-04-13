@@ -1,19 +1,20 @@
 package com.alilopez.application.models;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Venta {
     protected String idVenta;
     protected double monto;
-    protected LocalDateTime fecha;
+    protected LocalDate fecha;
     protected double cantidad;
-
-    public Venta(String idVenta, double monto, LocalDateTime fecha, double cantidad) {
+    protected LocalTime hora;
+    public Venta(String idVenta, double monto, LocalDate fecha, double cantidad, LocalTime hora) {
         this.idVenta = idVenta;
         this.monto = monto;
         this.fecha = fecha;
         this.cantidad = cantidad;
+        this.hora = hora;
     }
 
     public String getIdVenta() {
@@ -24,11 +25,15 @@ public class Venta {
         return monto;
     }
 
-    public LocalDateTime getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
     public double getCantidad() {
         return cantidad;
+    }
+
+    public LocalTime getHora() {
+        return hora;
     }
 }

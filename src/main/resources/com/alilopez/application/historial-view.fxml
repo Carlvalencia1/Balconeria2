@@ -15,11 +15,13 @@
                 <Image url="@../../../img/fondo-home-cafebalam.png" />
             </image>
         </ImageView>
-        <TableView fx:id="historialTable" layoutX="331.0" layoutY="220.0" prefHeight="377.0" prefWidth="623.0" style="-fx-background-color: #026336;">
+        <TableView fx:id="historialTable" layoutX="224.0" layoutY="210.0" prefHeight="378.0" prefWidth="797.0" style="-fx-background-color: #026336;">
             <columns>
-                <TableColumn fx:id="colFecha" minWidth="0.0" prefWidth="120.79998779296875" text="Fecha" />
-                <TableColumn fx:id="colIDVendedor" prefWidth="289.0" text="ID Vendedor" />
-                <TableColumn fx:id="colMonto" minWidth="0.0" prefWidth="212.0" text="Monto" />
+            <TableColumn fx:id="colEntrada" prefWidth="147.20001220703125" text="Hora Entrada" />
+            <TableColumn fx:id="colSalida" prefWidth="135.19998168945312" text="Hora Salida" />
+                <TableColumn fx:id="colFecha" minWidth="0.0" prefWidth="140.79998779296875" text="Fecha" />
+                <TableColumn fx:id="colIDVendedor" prefWidth="195.20001220703125" text="ID Vendedor" />
+                <TableColumn fx:id="colMonto" minWidth="0.0" prefWidth="172.7999267578125" text="Monto" />
             </columns>
         </TableView>
       <Button fx:id="exitButton" layoutX="539.0" layoutY="667.0" mnemonicParsing="false" onMouseClicked="#onMouseClickExitButton" prefHeight="64.0" prefWidth="206.0" text="Salir">
@@ -34,7 +36,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <AnchorPane layoutX="590.0" layoutY="89.0" prefHeight="92.0" prefWidth="361.0" style="-fx-background-color: #6B400F;">
+      <AnchorPane layoutX="660.0" layoutY="76.0" prefHeight="92.0" prefWidth="361.0" style="-fx-background-color: #6B400F;">
          <children>
             <Button fx:id="buscarButton" layoutX="216.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#onClickBuscarButton" prefHeight="29.0" prefWidth="111.0" text="Buscar">
                <graphic>

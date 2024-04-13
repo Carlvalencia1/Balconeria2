@@ -8,11 +8,14 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class HomeAdminController {
 
     private static LocalDateTime entrada;
     private static LocalDateTime salida;
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     @FXML
     private Button openCajaButton;
@@ -66,7 +69,9 @@ public class HomeAdminController {
     void onClickCloseCajaButton(MouseEvent event) {
         if (App.getCaja().isStatus() == true){
             salida = LocalDateTime.now();
-            if (App.getTienda().closeCaja(entrada, salida)) {
+            LocalTime horaEntrada = LocalTime.parse(entrada.format(formatter));
+            LocalTime horaSalida = LocalTime.parse(salida.format(formatter));
+            if (App.getTienda().closeCaja(horaEntrada, horaSalida)) {
                 App.getCaja().setStatus(false);
                 closeCajaButton.setVisible(false);
                 openCajaButton.setVisible(true);

@@ -21,7 +21,7 @@
             </font>
         </Button>
         <TextField fx:id="idTextfield" layoutX="67.0" layoutY="100.0" prefHeight="50.0" prefWidth="300.0" />
-        <Label layoutX="67.0" layoutY="53.0" text="Ingrese el ID " textFill="#ba7e37">
+        <Label layoutX="67.0" layoutY="53.0" text="Ingrese los primeros tres dígitos del ID" textFill="#ba7e37">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>

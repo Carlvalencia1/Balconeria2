@@ -25,10 +25,10 @@ public class BuscarUsuarioController {
     @FXML
     void onClickBuscarButton(MouseEvent event) {
         String contenido = null;
-        if (App.getTienda().searchUsuario(idTextfield.getText()) == null) {
+        if (App.getTienda().searchUsuario(idTextfield.getText()) == null){
             contenido = "No se encontró un usuario con ese ID";
         } else {
-            contenido = App.getTienda().searchProducto(idTextfield.getText());
+            contenido = App.getTienda().searchUsuario(idTextfield.getText());
         }
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

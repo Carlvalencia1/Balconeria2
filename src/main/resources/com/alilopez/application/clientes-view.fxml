@@ -22,7 +22,7 @@
                 <TableColumn fx:id="colCorreo" prefWidth="180.0" text="Correo" />
                 <TableColumn fx:id="colGastado" prefWidth="129.0" text="Gastado" />
                 <TableColumn fx:id="colComprado" prefWidth="131.0" text="Kilos Comprados" />
-                <TableColumn fx:id="colTelefono" prefWidth="187.0" text="Teléfono" />
+                <TableColumn fx:id="colTelefono" prefWidth="185.0" text="Teléfono" />
             </columns>
         </TableView>
         <AnchorPane layoutX="501.0" layoutY="83.0" prefHeight="92.0" prefWidth="632.0" style="-fx-background-color: #6B400F;">

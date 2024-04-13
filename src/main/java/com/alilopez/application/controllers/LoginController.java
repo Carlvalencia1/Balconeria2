@@ -13,9 +13,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 
 public class LoginController {
 
@@ -68,10 +65,7 @@ public class LoginController {
 
     @FXML
     void initialize() {
-//        LocalTime time = LocalTime.now();
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-//        String formattedTime = time.format(formatter);
-//        System.out.println(formattedTime);
+
     }
 
 }
