@@ -1,7 +1,7 @@
 package com.alilopez.application.controllers;
 
 import com.alilopez.application.App;
-import com.alilopez.application.models.VentaLocal;
+import com.alilopez.application.models.TrabajosLocales;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,28 +18,28 @@ public class VentasLocalesEncontradasController {
 
 
     @FXML
-    private TableView<VentaLocal> ventasLocalesTable;
+    private TableView<TrabajosLocales> ventasLocalesTable;
 
     @FXML
-    private TableColumn<VentaLocal, Integer> colCantidad;
+    private TableColumn<TrabajosLocales, Integer> colCantidad;
 
     @FXML
-    private TableColumn<VentaLocal, String> colIdVenta;
+    private TableColumn<TrabajosLocales, String> colIdVenta;
 
     @FXML
     private Button exitButton;
 
     @FXML
-    private TableColumn<VentaLocal, String> colIDVendedor;
+    private TableColumn<TrabajosLocales, String> colIDVendedor;
 
     @FXML
-    private TableColumn<VentaLocal, Integer> colMonto;
+    private TableColumn<TrabajosLocales, Integer> colMonto;
 
     @FXML
-    private TableColumn<VentaLocal, Integer> colDescuento;
+    private TableColumn<TrabajosLocales, Integer> colDescuento;
 
     @FXML
-    private TableColumn<VentaLocal, LocalDate> colFecha;
+    private TableColumn<TrabajosLocales, LocalDate> colFecha;
 
     @FXML
     void onMouseClickExitButton(MouseEvent event) throws IOException {
@@ -56,7 +56,7 @@ public class VentasLocalesEncontradasController {
         colCantidad.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
         colDescuento.setCellValueFactory(new PropertyValueFactory<>("descuentoLocal"));
         colIDVendedor.setCellValueFactory(new PropertyValueFactory<>("idVendedor"));
-        ObservableList<VentaLocal> ventas = FXCollections.observableArrayList(App.getTienda().getVLencontradas());
+        ObservableList<TrabajosLocales> ventas = FXCollections.observableArrayList(App.getTienda().getVLencontradas());
         ventasLocalesTable.setItems(ventas);
     }
 

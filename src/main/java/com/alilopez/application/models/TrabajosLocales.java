@@ -3,11 +3,11 @@ package com.alilopez.application.models;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class VentaLocal extends Venta{
+public class TrabajosLocales extends Venta{
     private float descuentoLocal = 0;
     private String idVendedor;
 
-    public VentaLocal(String idVenta, double monto, LocalDate fecha, double cantidad, LocalTime hora, float descuentoLocal, String idVendedor) {
+    public TrabajosLocales(String idVenta, double monto, LocalDate fecha, double cantidad, LocalTime hora, float descuentoLocal, String idVendedor) {
         super(idVenta, monto, fecha, cantidad, hora);
         this.descuentoLocal = descuentoLocal;
         this.idVendedor = idVendedor;
@@ -15,7 +15,7 @@ public class VentaLocal extends Venta{
 
     @Override
     public String toString() {
-        return "VentaLocal" + '\n' +
+        return "TrabajosLocales" + '\n' +
                 "Descuento local: " + descuentoLocal + '\n' +
                 "Id Vendedor: " + idVendedor +  '\n' +
                 "Id Venta: " + idVenta + '\n' +
