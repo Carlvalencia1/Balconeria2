@@ -14,7 +14,7 @@ public class Tienda {
     private ArrayList<String> tiposProductos = new ArrayList<>();
     private ArrayList<Usuario> usuarios = new ArrayList<>();
     private ArrayList<TrabajosLocales> ventasLocales = new ArrayList<>();
-    private ArrayList<VentaNacional> ventaNacionales = new ArrayList<>();
+    private ArrayList<TrabajosNaciones> ventaNacionales = new ArrayList<>();
     private ArrayList<Caja> historial = new ArrayList<>();
     public ArrayList<Cliente> getClientes() {
         return clientes;
@@ -28,7 +28,7 @@ public class Tienda {
     public ArrayList<Cafe> getProductos() {
         return productos;
     }
-    public ArrayList<VentaNacional> getVentaNacionales() {
+    public ArrayList<TrabajosNaciones> getVentaNacionales() {
         return ventaNacionales;
     }
 
@@ -40,14 +40,14 @@ public class Tienda {
         return tiposProductos;
     }
     public ArrayList<TrabajosLocales> VLencontradas = new ArrayList<>();
-    public ArrayList<VentaNacional> VNencontradas = new ArrayList<>();
+    public ArrayList<TrabajosNaciones> VNencontradas = new ArrayList<>();
     public ArrayList<Caja> historialEncontrado = new ArrayList<>();
 
     public ArrayList<TrabajosLocales> getVLencontradas() {
         return VLencontradas;
     }
 
-    public ArrayList<VentaNacional> getVNencontradas() {
+    public ArrayList<TrabajosNaciones> getVNencontradas() {
         return VNencontradas;
     }
 
@@ -64,7 +64,7 @@ public class Tienda {
             }
         }
         for (int i = 0; i < ventaNacionales.size(); i++) {
-            VentaNacional ventaAux = ventaNacionales.get(i);
+            TrabajosNaciones ventaAux = ventaNacionales.get(i);
             if (ventaAux.getHora().isAfter(entrada) && ventaAux.getHora().isBefore(salida)){
                 total += ventaAux.getMonto();
             }
@@ -139,7 +139,7 @@ public class Tienda {
                     LocalTime hora = LocalTime.now();
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
                     LocalTime horaVenta = LocalTime.parse(hora.format(formatter));
-                    VentaNacional ventaNacional = new VentaNacional(id, monto, fecha, cantidad, horaVenta , costoEnvio, direccion);
+                    TrabajosNaciones ventaNacional = new TrabajosNaciones(id, monto, fecha, cantidad, horaVenta , costoEnvio, direccion);
                     ventaNacionales.add(ventaNacional);
                     flag = true;
                 }
@@ -358,7 +358,7 @@ public class Tienda {
     }
 
     public boolean searchVentasNacionales(LocalDate fecha){
-        ArrayList<VentaNacional> aux = new ArrayList<>();
+        ArrayList<TrabajosNaciones> aux = new ArrayList<>();
         boolean flag = false;
         for (int i = 0; i < ventaNacionales.size(); i++) {
             LocalDate date = ventaNacionales.get(i).getFecha();
@@ -374,7 +374,7 @@ public class Tienda {
     }
 
     public boolean searchVentasNacionales(LocalDate fecha, LocalDate fecha2){
-        ArrayList<VentaNacional> aux = new ArrayList<>();
+        ArrayList<TrabajosNaciones> aux = new ArrayList<>();
         boolean flag = false;
         for (int i = 0; i < ventaNacionales.size(); i++) {
             LocalDate date = ventaNacionales.get(i).getFecha();

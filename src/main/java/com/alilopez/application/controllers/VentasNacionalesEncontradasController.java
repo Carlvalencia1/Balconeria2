@@ -1,7 +1,7 @@
 package com.alilopez.application.controllers;
 
 import com.alilopez.application.App;
-import com.alilopez.application.models.VentaNacional;
+import com.alilopez.application.models.TrabajosNaciones;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,29 +18,29 @@ public class VentasNacionalesEncontradasController {
 
 
     @FXML
-    private TableView<VentaNacional> ventasTable;
+    private TableView<TrabajosNaciones> ventasTable;
 
     @FXML
-    private TableColumn<VentaNacional, Integer> colCantidad;
+    private TableColumn<TrabajosNaciones, Integer> colCantidad;
 
     @FXML
-    private TableColumn<VentaNacional, String> colIdVenta;
+    private TableColumn<TrabajosNaciones, String> colIdVenta;
 
     @FXML
     private Button exitButton;
 
     @FXML
-    private TableColumn<VentaNacional, String> colDireccion;
+    private TableColumn<TrabajosNaciones, String> colDireccion;
 
     @FXML
-    private TableColumn<VentaNacional, Integer> colMonto;
+    private TableColumn<TrabajosNaciones, Integer> colMonto;
 
     @FXML
-    private TableColumn<VentaNacional, Integer> colCostoEnvio;
+    private TableColumn<TrabajosNaciones, Integer> colCostoEnvio;
 
 
     @FXML
-    private TableColumn<VentaNacional, LocalDate> colFecha;
+    private TableColumn<TrabajosNaciones, LocalDate> colFecha;
 
     @FXML
     void onMouseClickExitButton(MouseEvent event) throws IOException {
@@ -57,7 +57,7 @@ public class VentasNacionalesEncontradasController {
         colCantidad.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
         colCostoEnvio.setCellValueFactory(new PropertyValueFactory<>("costoEnvio"));
         colDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
-        ObservableList<VentaNacional> ventas = FXCollections.observableArrayList(App.getTienda().getVNencontradas());
+        ObservableList<TrabajosNaciones> ventas = FXCollections.observableArrayList(App.getTienda().getVNencontradas());
         ventasTable.setItems(ventas);
 
     }
